@@ -13,10 +13,12 @@ return {
     "rebelot/kanagawa.nvim",
     lazy = true,
     priority = 2000,
-    opt = {
-      colorscheme = "kanagawa",
-      transparent = false,
-    },
+    opt = function()
+      return {
+        colorscheme = "kanagawa",
+        transparent = true,
+      }
+    end,
   },
   { "ellisonleao/gruvbox.nvim" },
   { "navarasu/onedark.nvim" },
@@ -24,7 +26,7 @@ return {
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "onedark",
+      colorscheme = "solarized-osaka",
     },
   },
 }
