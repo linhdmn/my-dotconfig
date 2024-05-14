@@ -20,10 +20,11 @@ return {
   },
   { "ellisonleao/gruvbox.nvim" },
   { "navarasu/onedark.nvim" },
+  { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "kanagawa",
+      colorscheme = "onedark",
     },
   },
 }
