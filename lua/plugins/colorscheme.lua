@@ -32,9 +32,18 @@ return {
   },
   { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
   {
+    "jacoborus/tender.vim",
+    lazy = true,
+    opt = function()
+      return {
+        transparent = true,
+      }
+    end,
+  },
+  {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "onedark",
+      colorscheme = "tender",
     },
   },
 }
