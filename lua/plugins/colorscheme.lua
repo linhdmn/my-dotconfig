@@ -21,12 +21,20 @@ return {
     end,
   },
   { "ellisonleao/gruvbox.nvim" },
-  { "navarasu/onedark.nvim" },
+  {
+    "navarasu/onedark.nvim",
+    lazy = true,
+    opts = function()
+      return {
+        transparent = true,
+      }
+    end,
+  },
   { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
   {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "solarized-osaka",
+      colorscheme = "onedark",
     },
   },
 }
