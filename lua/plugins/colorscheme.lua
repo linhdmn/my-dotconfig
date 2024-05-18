@@ -41,9 +41,29 @@ return {
     end,
   },
   {
+    "savq/melange-nvim",
+    lazy = true,
+    opt = function()
+      return {
+        transparent = true,
+      }
+    end,
+  },
+  {
+    "rose-pine/neovim",
+    lazy = true,
+    opt = function()
+      return {
+        transparent = true,
+      }
+    end,
+  },
+  {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "tender",
+      colorscheme = "rose-pine",
+      transparent = true,
+      background_colour = "#000000",
     },
   },
 }
