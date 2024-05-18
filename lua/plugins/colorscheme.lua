@@ -59,9 +59,14 @@ return {
     end,
   },
   {
+    "xero/miasma.nvim",
+    lazy = false,
+    priority = 1000,
+  },
+  {
     "LazyVim/LazyVim",
     opts = {
-      colorscheme = "rose-pine",
+      colorscheme = "miasma",
       transparent = true,
       background_colour = "#000000",
     },
