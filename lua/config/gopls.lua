@@ -4,7 +4,6 @@ return {
         servers = {
             gopls = {
                 keys = {
-                    -- Workaround for the lack of a DAP strategy in neotest-go: https://github.com/nvim-neotest/neotest-go/issues/12
                     { "<leader>td", "<cmd>lua require('dap-go').debug_test()<CR>", desc = "Debug Nearest (Go)" },
                 },
                 settings = {
@@ -30,10 +29,10 @@ return {
                             rangeVariableTypes = true,
                         },
                         analyses = {
-                            fieldalignment = true,
+                            fieldalignment = false, -- This should disable the fieldalignment warning
                             nilness = true,
                             unusedparams = true,
-                            -- unusedwrite = true,
+                            unusedwrite = true,
                             useany = true,
                         },
                         usePlaceholders = true,
@@ -47,8 +46,6 @@ return {
         },
         setup = {
             gopls = function(_, opts)
-                -- workaround for gopls not supporting semanticTokensProvider
-                -- https://github.com/golang/go/issues/54531#issuecomment-1464982242
                 LazyVim.lsp.on_attach(function(client, _)
                     if client.name == "gopls" then
                         if not client.server_capabilities.semanticTokensProvider then
@@ -64,7 +61,6 @@ return {
                         end
                     end
                 end)
-                -- end workaround
             end,
         },
     },

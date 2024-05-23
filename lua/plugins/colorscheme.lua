@@ -20,7 +20,6 @@ return {
             }
         end,
     },
-    { "ellisonleao/gruvbox.nvim" },
     {
         "navarasu/onedark.nvim",
         lazy = true,
@@ -96,6 +95,21 @@ return {
             dim_inactive = false,
             transparent_mode = true,
         },
+    },
+    {
+        "savq/melange-nvim",
+        lazy = true,
+        opt = function()
+            return {
+                colorscheme = "kanagawa",
+                transparent = true,
+            }
+        end,
+    },
+    {
+        "scottmckendry/cyberdream.nvim",
+        lazy = false,
+        priority = 1000,
     },
     {
         "LazyVim/LazyVim",
