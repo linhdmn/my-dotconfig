@@ -3,7 +3,7 @@ require("config.lazy")
 
 vim.cmd("set list!")
 vim.cmd("highlight ColorColumn guibg=Gray")
-
+-- vim.go.background = "light"
 -- init.lua
 require("lspconfig").gopls.setup({
     on_attach = function(client, bufnr)
