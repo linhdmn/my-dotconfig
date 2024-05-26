@@ -1,0 +1,25 @@
+
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+    <key>Label</key>
+    <string>com.user.update_tmux_conf</string>
+    <key>ProgramArguments</key>
+    <array>
+        <string>/usr/local/bin/fswatch</string>
+        <string>-o</string>
+        <string>/Users/yourusername/.tmux.conf</string>
+        <string>|</string>
+        <string>/usr/bin/xargs</string>
+        <string>-n1</string>
+        <string>/path/to/update_tmux_conf.sh</string>
+    </array>
+    <key>RunAtLoad</key>
+    <true/>
+    <key>StandardErrorPath</key>
+    <string>/tmp/update_tmux_conf.err</string>
+    <key>StandardOutPath</key>
+    <string>/tmp/update_tmux_conf.out</string>
+</dict>
+</plist>
