@@ -15,5 +15,9 @@ vim.keymap.set("n", "sh", "<C-w>h")
 vim.keymap.set("n", "sk", "<C-w>k")
 vim.keymap.set("n", "sj", "<C-w>j")
 vim.keymap.set("n", "sl", "<C-w>l")
-vim.keymap.set("n", "<C-k>", ":m .-2<CR>==")
-vim.keymap.set("n", "<C-j>", ":m .+1<CR>==")
+
+-- vim.keymap.set("n", "<C-k>", ":m .-2<CR>==")
+-- vim.keymap.set("n", "<C-j>", ":m .+1<CR>==")
+-- Change to Alt-K and Alt-J for Neovim
+vim.keymap.set("n", "<A-k>", ":m .-2<CR>==", opts)
+vim.keymap.set("n", "<A-j>", ":m .+1<CR>==", opts)

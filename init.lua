@@ -1,52 +1,26 @@
 -- bootstrap lazy.nvim, LazyVim and your plugins
 require("config.lazy")
 
+-- Customize diagnostic signs and virtual text
+vim.diagnostic.config({
+    virtual_text = {
+        prefix = "●", -- Could be '●', '▎', 'x'
+    },
+    signs = true,
+    underline = true,
+    update_in_insert = false,
+})
+
+-- Define diagnostic signs
+local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " }
+for type, icon in pairs(signs) do
+    local hl = "DiagnosticSign" .. type
+    vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = hl })
+end
 vim.cmd("set list!")
 vim.cmd("highlight ColorColumn guibg=Gray")
 -- vim.go.background = "light"
 -- init.lua
-require("lspconfig").gopls.setup({
-    on_attach = function(client, bufnr)
-        -- Your custom on_attach function
-    end,
-    settings = {
-        gopls = {
-            gofumpt = true,
-            codelenses = {
-                gc_details = false,
-                generate = true,
-                regenerate_cgo = true,
-                run_govulncheck = true,
-                test = true,
-                tidy = true,
-                upgrade_dependency = true,
-                vendor = true,
-            },
-            hints = {
-                assignVariableTypes = true,
-                compositeLiteralFields = true,
-                compositeLiteralTypes = true,
-                constantValues = true,
-                functionTypeParameters = true,
-                parameterNames = true,
-                rangeVariableTypes = true,
-            },
-            analyses = {
-                fieldalignment = false, -- Disable fieldalignment warning
-                nilness = true,
-                unusedparams = true,
-                unusedwrite = true,
-                useany = true,
-            },
-            usePlaceholders = true,
-            completeUnimported = true,
-            staticcheck = true,
-            directoryFilters = { "-.git", "-.vscode", "-.idea", "-.vscode-test", "-node_modules" },
-            semanticTokens = true,
-        },
-    },
-})
-
 vim.cmd([[
     highlight CursorLine guibg=#282a36 guifg=NONE
     set cursorline
@@ -87,7 +61,7 @@ vim.api.nvim_create_autocmd("BufWritePre", {
             apply = true,
             context = {
                 only = { "source.removeUnused.ts" },
-                diagnostics = {},
+                diagnostics = vim.lsp.diagnostic.get_all(),
             },
         })
     end,

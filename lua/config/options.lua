@@ -9,7 +9,7 @@ opt.showtabline = 2
 opt.smarttab = true
 opt.softtabstop = 4
 opt.tabstop = 4
-opt.wrap = true
+opt.wrap = false
 opt.signcolumn = "yes"
 opt.showmode = false
 
